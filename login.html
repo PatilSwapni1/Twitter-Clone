@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="sign.css"/>
+    <link
+      rel="shortcut icon"
+      href="images\twitter.png"
+      type="image/x-icon"
+    />
+</head>
+<body>
+    <div class="container">
+    <span class="close"> <a href="index.html">&times;</a></span><br><br>
+    <h1>Sign in to X</h1><br>
+    <p>Welcome back you've<br>been missed !</p>
+    <form>
+    <input id="uname" type="text" placeholder="Enter username">
+    <input id="pass" type="password" placeholder="Password">
+    <p class="recover">
+        <a href="#">Recover Password</a>
+      </p>
+    </form>
+    <button type="submit" onclick="fun()">Sign In</button>
+    <div class="not-member">
+        Not a member? <a href="signin.html">Register Now</a>
+      </div>
+    </div>
+    <script>
+        function fun(){
+        let name = document.getElementById('uname').value;
+        let pass = document.getElementById('pass').value;
+        // Save the name in localStorage.
+        let rname = localStorage.getItem('name');
+        console.log(rname)
+        let password = localStorage.getItem('password');
+        console.log(password)
+        if (name==rname && password==pass)
+            document.write("Login successful")
+        else{
+            document.write("Invalid username or password")
+        }
+        }
+       
+    </script>
+</body>
+</html>

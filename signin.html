@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <link rel="stylesheet" href="sign.css"/>
+    <link
+      rel="shortcut icon"
+      href="images\twitter.png"
+      type="image/x-icon"
+    />
+</head>
+<body>
+    <div class="container">
+        <span class="close"> <a href="index.html">&times;</a></span><br><br>
+    <h1> Create your <br>account </h1><br>
+    <p>Hey, Ready to Join with X</p>
+    <form>
+        <input id="uname" type="text" placeholder="Enter Name">
+        <input id="phone" type="tel" name="phone" placeholder="Contact no." pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required>
+        <input id="password" type="password" placeholder="Create Password">
+        <input id="confirm_password"type="password" placeholder="Confirm Password" required>
+    </form>
+    <button type="submit" onclick="fun()">Submit</button>
+    <div class="not-member"><p id="demo"></p>Already have an account,
+    <a href="login.html">Login</a></div>
+    </div>
+    <script>
+        function fun(){
+        let uname = document.getElementById('uname').value;
+        let pass = document.getElementById('password').value;
+        // Save the name in localStorage.
+        localStorage.setItem('name', uname);
+        localStorage.setItem('password', pass);
+        document.getElementById("demo").innerHTML= ("Successful")}
+    </script>
+    <script>
+        var password = document.getElementById("password")
+        , confirm_password = document.getElementById("confirm_password");
+
+        function validatePassword(){
+         if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+          } else {
+            confirm_password.setCustomValidity('');
+          }
+        }
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
+    </script>
+</body>
+</html>
